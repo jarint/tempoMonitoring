@@ -1,5 +1,0 @@
-install.packages("devltools")
-library(devtools)
-
-install_github("jarint\tempoMonitoring")
-libraru
