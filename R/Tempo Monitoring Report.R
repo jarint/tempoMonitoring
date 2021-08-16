@@ -215,12 +215,12 @@ generate <- function(){
   #Generating the master table with initial NA values
   numRows = nrow(plate1)
   monitoringReport <<- data.frame(matrix(ncol = 22, nrow = numRows))
-  colnames(monitoringReport) = c('PTID',"rand <12 hr", "D&T Rand Match","D&T Onset < Rand","D&T Onset match", "Sex Match","NIHSS match",
+  colnames(monitoringReport) <<- c('PTID',"rand <12 hr", "D&T Rand Match","D&T Onset < Rand","D&T Onset match", "Sex Match","NIHSS match",
                                   "Dose ml", "Dose mg", "D&T Stroke Onset","D&T Informed Consent","Smoke?","D&T > Onset, <6h rdm", "Pregnancy Test",
                                   "BP SYS < 185", "BP DIA < 110","BL NIHSS Match", "Followup 24H", "Followup 5D", "Followup 90D", "mRS BL <= 2",
                                   "mRS 90D < BL")
   ptids = plate1$ptid
-  monitoringReport$PTID <- ptids
+  monitoringReport$PTID <<- ptids
   #
   #
   #
@@ -230,7 +230,7 @@ generate <- function(){
   for (ptid in ptids){
     for (row in 1:nrow(plate10)){
       if (plate10$ptid[row] == ptid){
-        day0NIHSS <- rbind(day0NIHSS, plate10[row, ])
+        day0NIHSS <<- rbind(day0NIHSS, plate10[row, ])
         break
       }
     }
