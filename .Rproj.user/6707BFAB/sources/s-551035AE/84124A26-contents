@@ -1,0 +1,15 @@
+detach("package:tempoMonitoring", unload = TRUE)
+install.packages("devtools")
+library(devtools)
+
+install_github("jarint/tempoMonitoring", force = TRUE)
+library(tempoMonitoring)
+
+assemble()
+generate()
+
+
+install_github("jarint/tempo", force = TRUE)
+library(tempo)
+
+assemble()

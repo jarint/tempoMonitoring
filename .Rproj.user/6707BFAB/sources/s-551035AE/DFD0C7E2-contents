@@ -14,11 +14,11 @@ assemble <- function(){
   # Plate 1
   fileSelector = rstudioapi::showQuestion(title = "Enter Randomization CSV", message = "Please select your randomization CSV file (Plate 1).",
                                           ok = NULL, cancel = NULL)
-  if (fileSelector == "ok"){
-    plate1 <- rstudioapi::selectFile("Select your Randomization.CSV file")
+  if (fileSelector == TRUE){
+    plate1 <<- rstudioapi::selectFile("Select your Randomization.CSV file")
     outPath <<- dirname(plate1)
-    plate1 <- read.csv(plate1, header = T)
-    plate1 <- as.data.frame(plate1)
+    plate1 <<- read.csv(plate1, header = T)
+    plate1 <<- as.data.frame(plate1)
   } else {
     rstudioapi::showDialog(title = "Warning!", message = "You must choose a randomization file (plate 1 in DFExplore). Please run the assemble() function again.")
     break;
