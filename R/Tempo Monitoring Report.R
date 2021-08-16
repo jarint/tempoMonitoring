@@ -28,9 +28,9 @@ assemble <- function(){
   fileSelector = rstudioapi::showQuestion(title = "Enter Plate 2 CSV", message = "Please select your Plate 2 CSV file",
                                           ok = NULL, cancel = NULL)
   if (fileSelector == TRUE){
-    plate2 <- rstudioapi::selectFile("Select your Plate Two.CSV file")
-    plate2 <- read.csv(plate2, header = T)
-    plate2 <- as.data.frame(plate2)
+    plate2 <<- rstudioapi::selectFile("Select your Plate Two.CSV file")
+    plate2 <<- read.csv(plate2, header = T)
+    plate2 <<- as.data.frame(plate2)
   } else {
     rstudioapi::showDialog(title = "Warning!", message = "You must choose a Plate 2 CSV file. Please run the assemble() function again.")
     break;
@@ -40,9 +40,9 @@ assemble <- function(){
   fileSelector = rstudioapi::showQuestion(title = "Enter Plate 3 CSV", message = "Please select your Plate 3 CSV file",
                                           ok = NULL, cancel = NULL)
   if (fileSelector == TRUE){
-    plate3 <- rstudioapi::selectFile("Select your Plate Three.CSV file")
-    plate3 <- read.csv(plate3, header = T)
-    plate3 <- as.data.frame(plate3)
+    plate3 <<- rstudioapi::selectFile("Select your Plate Three.CSV file")
+    plate3 <<- read.csv(plate3, header = T)
+    plate3 <<- as.data.frame(plate3)
   } else {
     rstudioapi::showDialog(title = "Warning!", message = "You must choose a Plate 3 CSV file. Please run the assemble() function again.")
     break;
@@ -52,9 +52,9 @@ assemble <- function(){
   fileSelector = rstudioapi::showQuestion(title = "Enter Plate 4 CSV", message = "Please select your Plate 4 CSV file",
                                           ok = NULL, cancel = NULL)
   if (fileSelector == TRUE){
-    plate4 <- rstudioapi::selectFile("Select your Plate Four.CSV file")
-    plate4 <- read.csv(plate4, header = T)
-    plate4 <- as.data.frame(plate4)
+    plate4 <<- rstudioapi::selectFile("Select your Plate Four.CSV file")
+    plate4 <<- read.csv(plate4, header = T)
+    plate4 <<- as.data.frame(plate4)
   } else {
     rstudioapi::showDialog(title = "Warning!", message = "You must choose a Plate 4 CSV file. Please run the assemble() function again.")
     break;
@@ -64,9 +64,9 @@ assemble <- function(){
   fileSelector = rstudioapi::showQuestion(title = "Enter Plate 5 CSV", message = "Please select your Plate 5 CSV file",
                                           ok = NULL, cancel = NULL)
   if (fileSelector == TRUE){
-    plate5 <- rstudioapi::selectFile("Select your Plate Five.CSV file")
-    plate5 <- read.csv(plate5, header = T)
-    plate5 <- as.data.frame(plate5)
+    plate5 <<- rstudioapi::selectFile("Select your Plate Five.CSV file")
+    plate5 <<- read.csv(plate5, header = T)
+    plate5 <<- as.data.frame(plate5)
   } else {
     rstudioapi::showDialog(title = "Warning!", message = "You must choose a Plate 5 CSV file. Please run the assemble() function again.")
     break;
@@ -76,9 +76,9 @@ assemble <- function(){
   fileSelector = rstudioapi::showQuestion(title = "Enter Plate 6 CSV", message = "Please select your Plate 6 CSV file",
                                           ok = NULL, cancel = NULL)
   if (fileSelector == TRUE){
-    plate6 <- rstudioapi::selectFile("Select your Plate Six.CSV file")
-    plate6 <- read.csv(plate6, header = T)
-    plate6 <- as.data.frame(plate6)
+    plate6 <<- rstudioapi::selectFile("Select your Plate Six.CSV file")
+    plate6 <<- read.csv(plate6, header = T)
+    plate6 <<- as.data.frame(plate6)
   } else {
     rstudioapi::showDialog(title = "Warning!", message = "You must choose a Plate 6 CSV file. Please run the assemble() function again.")
     break;
@@ -88,9 +88,9 @@ assemble <- function(){
   fileSelector = rstudioapi::showQuestion(title = "Enter Plate 7 CSV", message = "Please select your Plate 7 CSV file",
                                           ok = NULL, cancel = NULL)
   if (fileSelector == TRUE){
-    plate7 <- rstudioapi::selectFile("Select your Plate Seven.CSV file")
-    plate7 <- read.csv(plate7, header = T)
-    plate7 <- as.data.frame(plate7)
+    plate7 <<- rstudioapi::selectFile("Select your Plate Seven.CSV file")
+    plate7 <<- read.csv(plate7, header = T)
+    plate7 <<- as.data.frame(plate7)
   } else {
     rstudioapi::showDialog(title = "Warning!", message = "You must choose a Plate 7 CSV file. Please run the assemble() function again.")
     break;
@@ -100,9 +100,9 @@ assemble <- function(){
   fileSelector = rstudioapi::showQuestion(title = "Enter Plate 8 CSV", message = "Please select your Plate 8 CSV file",
                                           ok = NULL, cancel = NULL)
   if (fileSelector == TRUE){
-    plate8 <- rstudioapi::selectFile("Select your Plate Eight.CSV file")
-    plate8 <- read.csv(plate8, header = T)
-    plate8 <- as.data.frame(plate8)
+    plate8 <<- rstudioapi::selectFile("Select your Plate Eight.CSV file")
+    plate8 <<- read.csv(plate8, header = T)
+    plate8 <<- as.data.frame(plate8)
   } else {
     rstudioapi::showDialog(title = "Warning!", message = "You must choose a Plate 8 CSV file. Please run the assemble() function again.")
     break;
@@ -112,9 +112,9 @@ assemble <- function(){
   fileSelector = rstudioapi::showQuestion(title = "Enter Plate 9 CSV", message = "Please select your Plate 9 CSV file",
                                           ok = NULL, cancel = NULL)
   if (fileSelector == TRUE){
-    plate9 <- rstudioapi::selectFile("Select your Plate Nine.CSV file")
-    plate9 <- read.csv(plate9, header = T)
-    plate9 <- as.data.frame(plate9)
+    plate9 <<- rstudioapi::selectFile("Select your Plate Nine.CSV file")
+    plate9 <<- read.csv(plate9, header = T)
+    plate9 <<- as.data.frame(plate9)
   } else {
     rstudioapi::showDialog(title = "Warning!", message = "You must choose a Plate 9 CSV file. Please run the assemble() function again.")
     break;
@@ -124,9 +124,9 @@ assemble <- function(){
   fileSelector = rstudioapi::showQuestion(title = "Enter Plate 10 CSV", message = "Please select your Plate 10 CSV file",
                                           ok = NULL, cancel = NULL)
   if (fileSelector == TRUE){
-    plate10 <- rstudioapi::selectFile("Select your Plate Ten.CSV file")
-    plate10 <- read.csv(plate10, header = T)
-    plate10 <- as.data.frame(plate10)
+    plate10 <<- rstudioapi::selectFile("Select your Plate Ten.CSV file")
+    plate10 <<- read.csv(plate10, header = T)
+    plate10 <<- as.data.frame(plate10)
   } else {
     rstudioapi::showDialog(title = "Warning!", message = "You must choose a Plate 10 CSV file. Please run the assemble() function again.")
     break;
@@ -136,9 +136,9 @@ assemble <- function(){
   fileSelector = rstudioapi::showQuestion(title = "Enter Plate 11 CSV", message = "Please select your Plate 11 CSV file",
                                           ok = NULL, cancel = NULL)
   if (fileSelector == TRUE){
-    plate11 <- rstudioapi::selectFile("Select your Plate Eleven.CSV file")
-    plate11 <- read.csv(plate11, header = T)
-    plate11 <- as.data.frame(plate11)
+    plate11 <<- rstudioapi::selectFile("Select your Plate Eleven.CSV file")
+    plate11 <<- read.csv(plate11, header = T)
+    plate11 <<- as.data.frame(plate11)
   } else {
     rstudioapi::showDialog(title = "Warning!", message = "You must choose a Plate 11 CSV file. Please run the assemble() function again.")
     break;
@@ -148,9 +148,9 @@ assemble <- function(){
   fileSelector = rstudioapi::showQuestion(title = "Enter Baseline CT/CTA Site Assessment CSV", message = "Please select your Baseline CT/CTA Site Assessment CSV File (Plate 12).",
                                           ok = NULL, cancel = NULL)
   if (fileSelector == TRUE){
-    plate12 <- rstudioapi::selectFile("Select your Baseline CT/CTA .CSV file")
-    plate12 <- read.csv(plate12, header = T)
-    plate12 <- as.data.frame(plate12)
+    plate12 <<- rstudioapi::selectFile("Select your Baseline CT/CTA .CSV file")
+    plate12 <<- read.csv(plate12, header = T)
+    plate12 <<- as.data.frame(plate12)
   } else {
     rstudioapi::showDialog(title = "Warning!", message = "You must choose a Baseline CT/CTA Site Assesment form (plate 12 in DFExplore). Please run the assemble() function again.")
     break;
@@ -160,9 +160,9 @@ assemble <- function(){
   fileSelector = rstudioapi::showQuestion(title = "Enter Treatment Assignment CSV", message = "Please select a Treatment Assignment CSV File (Plate 13).",
                                           ok = NULL, cancel = NULL)
   if (fileSelector == TRUE){
-    plate13 <- rstudioapi::selectFile("Select your Treatment Assignment .CSV file")
-    plate13 <- read.csv(plate13, header = T)
-    plate13 <- as.data.frame(plate13)
+    plate13 <<- rstudioapi::selectFile("Select your Treatment Assignment .CSV file")
+    plate13 <<- read.csv(plate13, header = T)
+    plate13 <<- as.data.frame(plate13)
   } else {
     rstudioapi::showDialog(title = "Warning!", message = "You must choose a Treatment Assignment file (plate 13 in DFExplore). Please run the assemble() function again.")
     break;
@@ -172,9 +172,9 @@ assemble <- function(){
   fileSelector = rstudioapi::showQuestion(title = "Enter Plate 14 CSV", message = "Please select your Plate 14 CSV file",
                                           ok = NULL, cancel = NULL)
   if (fileSelector == TRUE){
-    plate14 <- rstudioapi::selectFile("Select your Plate Fourteen.CSV file")
-    plate14 <- read.csv(plate14, header = T)
-    plate14 <- as.data.frame(plate14)
+    plate14 <<- rstudioapi::selectFile("Select your Plate Fourteen.CSV file")
+    plate14 <<- read.csv(plate14, header = T)
+    plate14 <<- as.data.frame(plate14)
   } else {
     rstudioapi::showDialog(title = "Warning!", message = "You must choose a Plate 14 CSV file. Please run the assemble() function again.")
     break;
@@ -184,9 +184,9 @@ assemble <- function(){
   fileSelector = rstudioapi::showQuestion(title = "Enter Plate 15 CSV", message = "Please select your Plate 15 CSV file",
                                           ok = NULL, cancel = NULL)
   if (fileSelector == TRUE){
-    plate15 <- rstudioapi::selectFile("Select your Plate Fifteen.CSV file")
-    plate15 <- read.csv(plate15, header = T)
-    plate15 <- as.data.frame(plate15)
+    plate15 <<- rstudioapi::selectFile("Select your Plate Fifteen.CSV file")
+    plate15 <<- read.csv(plate15, header = T)
+    plate15 <<- as.data.frame(plate15)
   } else {
     rstudioapi::showDialog(title = "Warning!", message = "You must choose a Plate 15 CSV file. Please run the assemble() function again.")
     break;
@@ -196,9 +196,9 @@ assemble <- function(){
   fileSelector = rstudioapi::showQuestion(title = "Enter Imaging Form CSV", message = "Please select your Imaging Form CSV file (Plate 16).",
                                           ok = NULL, cancel = NULL)
   if (fileSelector == TRUE){
-    plate16 <- rstudioapi::selectFile("Select your Plate 16.CSV file")
-    plate16 <- read.csv(plate16, header = T)
-    plate16 <- as.data.frame(plate16)
+    plate16 <<- rstudioapi::selectFile("Select your Plate 16.CSV file")
+    plate16 <<- read.csv(plate16, header = T)
+    plate16 <<- as.data.frame(plate16)
   } else {
     rstudioapi::showDialog(title = "Warning!", message = "You must choose an imaging file (plate 16 in DFExplore). Please run the assemble() function again.")
     break;
@@ -214,7 +214,7 @@ generate <- function(){
   #
   #Generating the master table with initial NA values
   numRows = nrow(plate1)
-  monitoringReport = data.frame(matrix(ncol = 22, nrow = numRows))
+  monitoringReport <<- data.frame(matrix(ncol = 22, nrow = numRows))
   colnames(monitoringReport) = c('PTID',"rand <12 hr", "D&T Rand Match","D&T Onset < Rand","D&T Onset match", "Sex Match","NIHSS match",
                                   "Dose ml", "Dose mg", "D&T Stroke Onset","D&T Informed Consent","Smoke?","D&T > Onset, <6h rdm", "Pregnancy Test",
                                   "BP SYS < 185", "BP DIA < 110","BL NIHSS Match", "Followup 24H", "Followup 5D", "Followup 90D", "mRS BL <= 2",
@@ -226,7 +226,7 @@ generate <- function(){
   #
   #
   #Make day 0 NIHSS
-  day0NIHSS <- plate10[FALSE, ]
+  day0NIHSS <<- plate10[FALSE, ]
   for (ptid in ptids){
     for (row in 1:nrow(plate10)){
       if (plate10$ptid[row] == ptid){
