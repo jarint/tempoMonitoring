@@ -777,9 +777,11 @@ followUp24H <- function(n){
     if (plate10$ptid[row] == n){
       if (plate10$nihss2_visit_type[row] == 2){
         nihssBL = plate10$NIHSS_Totscore[row]
+        nihssBL = as.numeric(nihssBL)
       }
       if (plate10$nihss2_visit_type[row] == 3){
         nihssCurrent = plate10$NIHSS_Totscore[row]
+        nihssCurrent = as.numeric(nihssCurrent)
       }
     }
   }
@@ -802,9 +804,11 @@ followUp5D <- function(n){
     if (plate10$ptid[row] == n){
       if (plate10$nihss2_visit_type[row] == 2){
         nihssBL = plate10$NIHSS_Totscore[row]
+        nihssBL = as.numeric(nihssBL)
       }
       if (plate10$nihss2_visit_type[row] == 4){
         nihssCurrent = plate10$NIHSS_Totscore[row]
+        nihssCurrent = as.numeric(nihssCurrent)
       }
     }
   }
@@ -827,9 +831,11 @@ followUp90D <- function(n){
     if (plate10$ptid[row] == n){
       if (plate10$nihss2_visit_type[row] == 2){
         nihssBL = plate10$NIHSS_Totscore[row]
+        nihssBL = as.numeric(nihssBL)
       }
       if (plate10$nihss2_visit_type[row] == 5){
         nihssCurrent = plate10$NIHSS_Totscore[row]
+        nihssCurrent = as.numeric(nihssCurrent)
       }
     }
   }

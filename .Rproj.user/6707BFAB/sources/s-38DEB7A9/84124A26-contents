@@ -15,3 +15,9 @@ install_github("jarint/tempo", force = TRUE)
 library(tempo)
 
 assemble()
+
+
+if (any(typeof(plate10$NIHSS_Totscore) != "integer")){
+  print(plate10$NIHSS_Totscore)
+}
+print(typeof(plate10$NIHSS_Totscore))
