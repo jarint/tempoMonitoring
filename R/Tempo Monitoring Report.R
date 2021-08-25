@@ -262,54 +262,36 @@ generate <- function(){
   }
 
   #output Excel file
-  if(require("xlsx")){
-    print("xlsx is loaded correctly")
+  if(require("openxlsx")){
+    print("openxlsx is loaded correctly")
   } else {
-    print("Trying to Install xlsx")
-    install.packages("xlsx")
-    if(require("xlsx")){
-      print("xlsx installed and loaded")
+    print("Trying to Install openxlsx")
+    install.packages("openxlsx")
+    if(require("openxlsx")){
+      print("openxlsx installed and loaded")
     } else {
-      stop("Could not install xlsx")
+      stop("Could not install openxlsx")
     }
   }
+
+
+  wb <- createWorkbook()
+  addWorksheet(wb, "Sheet 1")
+
+  cs1 <- createStyle(bgFill = "green")
+  cs2 <- createStyle(bgFill = "red")
+
+  writeData(wb, "Sheet 1", monitoringReport, colNames = TRUE)
+  conditionalFormatting(wb, "Sheet 1", cols = 1:22+1, rows = 1:nrow(monitoringReport)+1, rule = "Y", style = cs1, type = "contains")
+  conditionalFormatting(wb, "Sheet 1", cols = 1:22+1, rows = 1:nrow(monitoringReport)+1, rule = "N", style = cs2, type = "contains")
 
   excelFile = "/Monitoring Report"
   excelDate = Sys.Date()
   interimfilename = paste(excelFile, excelDate)
   filename = paste(interimfilename, ".xlsx", sep = "")
   extension = paste(outPath, filename, sep = "")
-  write.xlsx(monitoringReport, file = extension, row.names = F, showNA = F)
 
-  wb <- loadWorkbook(extension)
-  f1 <- Fill(foregroundColor = "green")
-  cs1 <- CellStyle(wb, fill = f1)
-  f2 <- Fill(foregroundColor = "red")
-  cs2 <- CellStyle(wb, fill = f2)
-  sheets <- getSheets(wb)
-  sheet <- sheets[["Sheet1"]]
-  rows <- getRows(sheet, rowIndex=2:(nrow(monitoringReport)+1))
-  cells <- getCells(rows, colIndex = 1:22+1) #remember to change this if your column number increases
-  values <- lapply(cells, getCellValue)
-  highlightGreen <- NULL
-  for (i in names(values)) {
-    x <- as.character(values[i])
-    if (x == 'Y' && !is.na(x)) {
-      highlightGreen <- c(highlightGreen, i)
-    }
-  }
-  highlightRed <- NULL
-  for (i in names(values)) {
-    x <- as.character(values[i])
-    if (x == 'N' && !is.na(x)) {
-      highlightRed <- c(highlightRed, i)
-    }
-  }
-  lapply(names(cells[highlightGreen]),
-         function(ii) setCellStyle(cells[[ii]], cs1))
-  lapply(names(cells[highlightRed]),
-         function(ii) setCellStyle(cells[[ii]], cs2))
-  saveWorkbook(wb, extension)
+  saveWorkbook(wb, file = extension, overwrite = TRUE)
 
 }
 

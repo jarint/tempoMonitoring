@@ -21,3 +21,100 @@ if (any(typeof(plate10$NIHSS_Totscore) != "integer")){
   print(plate10$NIHSS_Totscore)
 }
 print(typeof(plate10$NIHSS_Totscore))
+
+
+install.packages("xlsx")
+library(xlsx)
+
+install.packages("readxl")
+library(readxl)
+
+install.packages("openxlsx")
+library(openxlsx)
+
+detach("package:xlsx", unload = TRUE)
+
+
+
+assemble()
+
+#output Excel file
+if(require("openxlsx")){
+  print("openxlsx is loaded correctly")
+} else {
+  print("Trying to Install openxlsx")
+  install.packages("openxlsx")
+  if(require("openxlsx")){
+    print("openxlsx installed and loaded")
+  } else {
+    stop("Could not install openxlsx")
+  }
+}
+
+
+wb <- createWorkbook()
+addWorksheet(wb, "Sheet 1")
+
+cs1 <- createStyle(bgFill = "green")
+cs2 <- createStyle(bgFill = "red")
+
+writeData(wb, "Sheet 1", monitoringReport, colNames = TRUE)
+conditionalFormatting(wb, "Sheet 1", cols = 1:22+1, rows = 1:nrow(monitoringReport)+1, rule = "Y", style = cs1, type = "contains")
+conditionalFormatting(wb, "Sheet 1", cols = 1:22+1, rows = 1:nrow(monitoringReport)+1, rule = "N", style = cs2, type = "contains")
+
+excelFile = "/Monitoring Report"
+excelDate = Sys.Date()
+interimfilename = paste(excelFile, excelDate)
+filename = paste(interimfilename, ".xlsx", sep = "")
+extension = paste(outPath, filename, sep = "")
+
+saveWorkbook(wb, file = extension, overwrite = TRUE)
+
+
+
+
+
+write.xlsx(monitoringReport, file = extension, row.names = F, showNA = F)
+
+wb <- loadWorkbook(extension)
+cs1 <- createStyle(fgFill = "green")
+cs2 <- createStyle(fgFill = "red")
+sheets <- getSheetNames(extension)
+sheet <- sheets[1]
+rows <- cell_rows(sheet)
+
+cells <- read_excel(extension, range = cell_rows(2:nrow(monitoringReport)+1))
+getCellRefs()
+
+rows <- cell_rows(2:nrow(monitoringReport)+1)
+cols <- cell_cols()
+
+f1 <- Fill(foregroundColor = "green")
+cs1 <- CellStyle(wb, fill = f1)
+f2 <- Fill(foregroundColor = "red")
+cs2 <- CellStyle(wb, fill = f2)
+sheets <- getSheets(wb)
+sheet <- sheets[["Sheet1"]]
+rows <- getRows(sheet, rowIndex=2:(nrow(monitoringReport)+1))
+cells <- getCells(rows, colIndex = 1:22+1) #remember to change this if your column number increases
+values <- lapply(cells, getCellValue)
+highlightGreen <- NULL
+for (i in names(values)) {
+  x <- as.character(values[i])
+  if (x == 'Y' && !is.na(x)) {
+    highlightGreen <- c(highlightGreen, i)
+  }
+}
+highlightRed <- NULL
+for (i in names(values)) {
+  x <- as.character(values[i])
+  if (x == 'N' && !is.na(x)) {
+    highlightRed <- c(highlightRed, i)
+  }
+}
+lapply(names(cells[highlightGreen]),
+       function(ii) setCellStyle(cells[[ii]], cs1))
+lapply(names(cells[highlightRed]),
+       function(ii) setCellStyle(cells[[ii]], cs2))
+saveWorkbook(wb, extension)
+
